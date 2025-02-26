@@ -1,5 +1,5 @@
 import Vakuu from "../support/pages/vakuu.page";
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test ("Test 1. Redirection using Get Started button", async({page})=>{
 const vakuu = new Vakuu(page);
@@ -86,7 +86,7 @@ test ("Test 12. Redirection to instagram account", async ({page})=>{
     await vakuu.goto();
     await vakuu.instagramLink.click();
     await expect(page.url()).not.toBe('https://polis812.github.io/vacuu/#');
-    await expect(page.url()).toContainText('instagram.com');
+    await expect(page.url()).toContain('instagram.com');
 })
 
 test ("Test 13. Changing language to FIN", async ({page})=>{
@@ -164,7 +164,7 @@ test ("Test 22. Redirection to twitter account", async ({page})=>{
     await vakuu.goto();
     await vakuu.twitterLink.click();
     await expect(page.url()).not.toBe('https://polis812.github.io/vacuu/#');
-    await expect(page.url()).toContainText('x.com');
+    await expect(page.url()).toContain('x.com');
 })
 
 test ("Test 23. Redirection to facebook account", async ({page})=>{
@@ -172,7 +172,7 @@ test ("Test 23. Redirection to facebook account", async ({page})=>{
     await vakuu.goto();
     await vakuu.facebookLink.click();
     await expect(page.url()).not.toBe('https://polis812.github.io/vacuu/#');
-    await expect(page.url()).toContainText('facebook.com');
+    await expect(page.url()).toContain('facebook.com');
 })
 
 test ("Test 24. Redirection to telegram account", async ({page})=>{
@@ -180,7 +180,7 @@ test ("Test 24. Redirection to telegram account", async ({page})=>{
     await vakuu.goto();
     await vakuu.telegramLink.click();
     await expect(page.url()).not.toBe('https://polis812.github.io/vacuu/#');
-    await expect(page.url()).toContainText('telegram.org');
+    await expect(page.url()).toContain('telegram.org');
 })
 
 test ("Test 25. Saving selected language on the page after reload", async ({page})=>{

@@ -1,23 +1,18 @@
-// @ts-check
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
-export default defineConfig({
-  reporter: [['html', { outputFolder: 'playwright-report' }]], 
-});
+// import dotenv from 'dotenv';
+// import path from 'path';
+// dotenv.config({ path: path.resolve(__dirname, '.env') });
+
 /**
- * @see https://playwright.dev/docs/test-configuration
+ * See https://playwright.dev/docs/test-configuration.
  */
-module.exports = defineConfig({
-  timeout: 50000, 
-  expect: {
-    timeout: 20000, 
-  },
-  testDir: './tests',
+export default defineConfig({
+  testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -30,7 +25,8 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-     baseURL: 'https://polis812.github.io/vacuu/',
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -40,24 +36,18 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      
-      use: {
-        browserName: 'chromium',
-        launchOptions: {
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-        }
-      }
+      use: { ...devices['Desktop Chrome'] },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
@@ -87,4 +77,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
