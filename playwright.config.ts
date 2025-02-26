@@ -6,7 +6,9 @@ const { defineConfig, devices } = require('@playwright/test');
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
-
+export default defineConfig({
+  reporter: [['html', { outputFolder: 'playwright-report' }]], 
+});
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
