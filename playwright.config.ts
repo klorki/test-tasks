@@ -36,7 +36,17 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+<<<<<<< HEAD
       use: { ...devices['Desktop Chrome'] },
+=======
+      
+      use: {
+        browserName: 'chromium',
+        launchOptions: {
+            executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        }
+      }
+>>>>>>> 48ad6d7f82b149ddd284a8f02d3891faf8fd8b41
     },
 
     {
