@@ -44,7 +44,7 @@ module.exports = defineConfig({
       use: {
         browserName: 'chromium',
         launchOptions: {
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+            executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe'
         }
       }
     },
