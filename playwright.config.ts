@@ -38,7 +38,13 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 980} },
+      
+      use: {
+        browserName: 'chromium',
+        launchOptions: {
+            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+        }
+      }
     },
 
     // {
