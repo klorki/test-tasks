@@ -6,7 +6,9 @@ const { defineConfig, devices } = require('@playwright/test');
  * https://github.com/motdotla/dotenv
  */
 // require('dotenv').config();
-
+export default defineConfig({
+  reporter: [['html', { outputFolder: 'playwright-report' }]], 
+});
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -38,7 +40,13 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], viewport: { width: 1920, height: 980} },
+      
+      use: {
+        browserName: 'chromium',
+        launchOptions: {
+            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+        }
+      }
     },
 
     // {

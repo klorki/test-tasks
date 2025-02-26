@@ -7,15 +7,13 @@ await vakuu.goto();
 await vakuu.getStartedButton.click();
 await expect(page.url()).not.toBe('https://polis812.github.io/vacuu/');
 })
-
 test ("Test 2. Reloading the page by clicking to url on top", async({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
-    await vakuu.logoOnTopButton.click();
+    await vakuu.logoHeaderButton.click();
     await page.waitForLoadState('domcontentloaded');
     await expect(page.url()).toBe('https://polis812.github.io/vacuu/');
 })
-
 test ("Test 3. Redirection to my account page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -23,7 +21,6 @@ test ("Test 3. Redirection to my account page", async ({page})=>{
     await expect(page.url()).toBe('https://polis812.github.io/profile');
     await expect(vakuu.errorText).not.toBeVisible();
 })
-
 test ("Test 4. Redirection to insurance page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -31,7 +28,6 @@ test ("Test 4. Redirection to insurance page", async ({page})=>{
     await expect(page.url()).toBe('https://polis812.github.io/insurance');
     await expect(vakuu.errorText).not.toBeVisible();
 })
-
 test ("Test 5. Redirection to calculate price page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -39,7 +35,6 @@ test ("Test 5. Redirection to calculate price page", async ({page})=>{
     await expect(page.url()).toBe('https://polis812.github.io/home');
     await expect(vakuu.errorText).not.toBeVisible();
 })
-
 test ("Test 6. Usage of arrow button for next comment", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -47,7 +42,6 @@ test ("Test 6. Usage of arrow button for next comment", async ({page})=>{
     await vakuu.arrowButton.click();
     await expect(vakuu.firstCommentBox).not.toBeVisible();
 })
-
 test ("Test 7. Check for updating page after clicking choosing insurance button", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -55,7 +49,6 @@ test ("Test 7. Check for updating page after clicking choosing insurance button"
     await expect(page.url()).toBe('https://polis812.github.io/vacuu/insurance');
     await expect(vakuu.developmentText).not.toBeVisible();
 })
-
 test ("Test 8. Redirection to car insurance page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -136,7 +129,6 @@ test ("Test 17. Redirection to travel insurance page", async ({page})=>{
     await expect(page.url()).toBe('https://polis812.github.io/home');
     await expect(vakuu.errorText).not.toBeVisible();
 })
-
 test ("Test 18. Redirection to pet insurance page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -144,8 +136,6 @@ test ("Test 18. Redirection to pet insurance page", async ({page})=>{
     await expect(page.url()).toBe('https://polis812.github.io/pet');
     await expect(vakuu.errorText).not.toBeVisible();
 })
-
-
 test ("Test 19. Check correction of main page link", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
@@ -163,9 +153,9 @@ test ("Test 20. Redirection to cookies page", async ({page})=>{
 test ("Test 21. Check logo in the footer opens vakuu page", async ({page})=>{
     const vakuu = new Vakuu(page);
     await vakuu.goto();
-    await vakuu.logoBelowButton.click();
+    await vakuu.logoFooterButton.click();
     await expect(page.url()).toBe('https://polis812.github.io/vacuu/');
-    await expect(vakuu.logoBelowButton).toBeVisible();
+    await expect(vakuu.logoFooterButton).toBeVisible();
     await expect(vakuu.insuranceLink).toBeVisible();
 })
 

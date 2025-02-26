@@ -4,7 +4,7 @@ export default class Vakuu {
     readonly page: Page;
     readonly url: string;
     readonly getStartedButton: Locator;
-    readonly logoOnTopButton: Locator;
+    readonly logoHeaderButton: Locator;
     readonly myAccountButtton: Locator;
     readonly insuranceLink: Locator;
     readonly ourPartnerTurvaLink: Locator;
@@ -29,7 +29,7 @@ export default class Vakuu {
     readonly languageChangeButton: Locator;
     readonly termsLink: Locator;
     readonly cookiesLink: Locator;
-    readonly logoBelowButton: Locator;
+    readonly logoFooterButton: Locator;
     readonly errorText: Locator;
     readonly developmentText: Locator;
 
@@ -41,7 +41,7 @@ export default class Vakuu {
     this.url = 'https://polis812.github.io/vacuu/';
 
     this.getStartedButton = page.getByText("Get started");
-    this.logoOnTopButton = page.locator('.main__header__logo');
+    this.logoHeaderButton = page.locator('.main__header__logo');
     this.myAccountButtton = page.locator('.main__header__profile');
     this.insuranceLink = page.locator('.main__header__item').nth(0);
     this.calculatePriceButton = page.locator('a[href="/home"]').nth(0);
@@ -64,16 +64,11 @@ export default class Vakuu {
     this.petInsuranceLink = page.locator('a.footer__col__item[href="/pet"]');
     this.cookiesLink = page.locator('a[href="/cookies#"]');
     this.termsLink = page.locator('a.footer__link[href="#"]')
-    this.logoBelowButton = page.locator('footer .logo img');
+    this.logoFooterButton = page.locator('footer .logo img');
     this.errorText = page.getByText("404");
     this.developmentText = page.getByText("In development...");
-
-    
-
  }
-
 async goto() {
     await this.page.goto(this.url, { waitUntil: "domcontentloaded" });
 }
-
 }
