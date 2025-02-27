@@ -15,7 +15,7 @@ export default defineConfig({
 module.exports = defineConfig({
   timeout: 50000, 
   expect: {
-    timeout: 20000, 
+    timeout: 10000, 
   },
   testDir: './tests',
   /* Run tests in files in parallel */
